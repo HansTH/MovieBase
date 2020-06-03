@@ -10,7 +10,7 @@ function Movie(props) {
 
 	if (Response === 'True') {
 		return (
-			<div>
+			<div className='movie'>
 				<img src={poster} alt='Movie Poster' />
 				<h2>{Title}</h2>
 				<h4>{Year}</h4>

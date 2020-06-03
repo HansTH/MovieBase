@@ -21,14 +21,15 @@ class Searchbar extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form className='form' onSubmit={this.handleSubmit}>
 				<input
+					className='textfield'
 					type='text'
 					value={this.state.searchText}
 					placeholder='Search on Movie title'
 					onChange={this.handleOnChange}
 				/>
-				<button type='submit' onClick={this.handleSubmit}>
+				<button className='button' type='submit' onClick={this.handleSubmit}>
 					Search
 				</button>
 			</form>
