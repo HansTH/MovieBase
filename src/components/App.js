@@ -8,7 +8,7 @@ import Student from './Student';
 import Home from './Home';
 import Page404 from './Page404';
 const API_KEY = '68dd7cc2';
-const OMDB_URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
+const OMDB_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&`;
 
 export default class App extends Component {
 	state = {
