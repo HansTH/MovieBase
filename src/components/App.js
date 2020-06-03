@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Searchbar from './Searchbar';
-import Movie from './Movie';
+import Teacher from './Teacher';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import Student from './Student';
+import Home from './Home';
 const API_KEY = '68dd7cc2';
 const OMDB_URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 
@@ -21,18 +25,38 @@ export default class App extends Component {
 			isLoading: false,
 		});
 
-		console.log(searchRequest);
+		console.log(movieData);
 	};
 
 	render() {
 		return (
-			<div>
-				<Searchbar handleFetchSearchRequest={this.fetchSearchRequest} />
-				{this.state.movie.length === 0 ? null : (
-					<Movie movie={this.state.movie} />
-				)}
-				<h2>{this.state.isLoading ? 'Loading...' : null}</h2>
-			</div>
+			<BrowserRouter>
+				<div>
+					<Navbar />
+					<Switch>
+						<Route exact path='/' component={Home} />
+						<Route
+							path='/teacher'
+							render={() => (
+								<Teacher
+									state={this.state}
+									handleFetchSearchRequest={this.fetchSearchRequest}
+								/>
+							)}
+						/>
+						<Route
+							path='/student'
+							render={() => (
+								<Student
+									state={this.state}
+									handleFetchSearchRequest={this.fetchSearchRequest}
+								/>
+							)}
+						/>
+					</Switch>
+					<Footer />
+				</div>
+			</BrowserRouter>
 		);
 	}
 }
