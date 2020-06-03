@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Teacher from './Teacher';
 import Navbar from './Navbar';
@@ -37,7 +37,7 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<BrowserRouter>
+			<HashRouter>
 				<div>
 					<Navbar clickedNavLink={this.resetPage} />
 					<div className='container'>
@@ -66,7 +66,7 @@ export default class App extends Component {
 					</div>
 					<Footer />
 				</div>
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 }
