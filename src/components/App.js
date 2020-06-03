@@ -28,32 +28,40 @@ export default class App extends Component {
 		console.log(movieData);
 	};
 
+	resetPage = () => {
+		this.setState({
+			movie: [],
+		});
+	};
+
 	render() {
 		return (
 			<BrowserRouter>
 				<div>
-					<Navbar />
-					<Switch>
-						<Route exact path='/' component={Home} />
-						<Route
-							path='/teacher'
-							render={() => (
-								<Teacher
-									state={this.state}
-									handleFetchSearchRequest={this.fetchSearchRequest}
-								/>
-							)}
-						/>
-						<Route
-							path='/student'
-							render={() => (
-								<Student
-									state={this.state}
-									handleFetchSearchRequest={this.fetchSearchRequest}
-								/>
-							)}
-						/>
-					</Switch>
+					<Navbar clickedNavLink={this.resetPage} />
+					<div className='container'>
+						<Switch>
+							<Route exact path='/' component={Home} />
+							<Route
+								path='/teacher'
+								render={() => (
+									<Teacher
+										state={this.state}
+										handleFetchSearchRequest={this.fetchSearchRequest}
+									/>
+								)}
+							/>
+							<Route
+								path='/student'
+								render={() => (
+									<Student
+										state={this.state}
+										handleFetchSearchRequest={this.fetchSearchRequest}
+									/>
+								)}
+							/>
+						</Switch>
+					</div>
 					<Footer />
 				</div>
 			</BrowserRouter>
