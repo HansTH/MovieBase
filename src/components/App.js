@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Searchbar from './Searchbar';
 const API_KEY = '68dd7cc2';
 const OMDB_URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 
@@ -19,18 +20,13 @@ export default class App extends Component {
 			isLoading: false,
 		});
 
-		console.log(this.state.movie);
+		console.log(searchRequest);
 	};
-
-	async componentDidMount() {
-		console.log('componentDidMount');
-		this.fetchSearchRequest('star wars');
-	}
 
 	render() {
 		return (
 			<div>
-				<h1>Hello React</h1>
+				<Searchbar handleFetchSearchRequest={this.fetchSearchRequest} />
 				<h2>{this.state.isLoading ? 'Loading...' : null}</h2>
 			</div>
 		);
