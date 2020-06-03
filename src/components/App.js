@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Searchbar from './Searchbar';
+import Movie from './Movie';
 const API_KEY = '68dd7cc2';
 const OMDB_URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 
@@ -27,6 +28,9 @@ export default class App extends Component {
 		return (
 			<div>
 				<Searchbar handleFetchSearchRequest={this.fetchSearchRequest} />
+				{this.state.movie.length === 0 ? null : (
+					<Movie movie={this.state.movie} />
+				)}
 				<h2>{this.state.isLoading ? 'Loading...' : null}</h2>
 			</div>
 		);
